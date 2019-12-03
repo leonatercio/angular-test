@@ -4,15 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none';
-  frame-src 'self';
-  script-src 'self';
-  style-src 'self' 'unsafe-inline';
-  font-src 'self';
-  img-src 'self' data:;
-  connect-src 'self'">
-  <!-- <link href="./assets/css/font.css" type="text/css" rel="stylesheet"> -->
-  <!-- <link rel="stylesheet" type="text/css" href="./assets/css/materialize.min.css"> -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
   <base href="/">
   <style>
@@ -52,10 +46,12 @@
 
 <body>
   <app-root>Loading...</app-root>
-  <script type="text/javascript" src="./assets/js/jquery.min.js" nonce></script>
-  <script type="text/javascript"src="./assets/js/materialize.min.js" nonce></script>
-  <script src="./assets/js/jquery.mask.min.js" nonce></script>
-  <script nonce>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
+    integrity="sha256-Kg2zTcFO9LXOc7IwcBx1YeUBJmekycsnTsq2RuFHSZU=" crossorigin="anonymous"></script>
+  <script>
     $(document).ready(function () {
       $('.collapsible').collapsible();
       $('#phone').mask('(00) 0 0000-0000');
