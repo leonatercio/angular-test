@@ -19,12 +19,12 @@ app.use(forceSSL());
 
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + './dist/angular-test'));
+app.use(express.static(__dirname + '/dist/angular-test'));
 
 const path = require('path');
 
 app.get('/*', function(req,res) {
-  res.sendFile(path.join(__dirname+'./dist/angular-test/index.html'));
+  res.sendFile(path.join(__dirname+'/dist/angular-test/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
