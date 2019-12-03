@@ -19,7 +19,7 @@ app.use(forceSSL());
 
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + './dist/angular-test'));
+app.use(express.static(__dirname + '/src'));
 
 const path = require('path');
 
