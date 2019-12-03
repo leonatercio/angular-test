@@ -23,7 +23,7 @@ app.use(express.static(__dirname + '/dist/angular-test'));
 
 const path = require('path');
 
-app.get('/*', function(req,res) {
+app.get('/src', function(req,res) {
   res.sendFile(path.join(__dirname+'/dist/angular-test/index.html'));
 });
 
