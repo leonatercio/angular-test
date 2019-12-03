@@ -6,10 +6,13 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthenticationService {
   headers: any = new Headers();
-  constructor(private http: HttpClient) { }
+  apiUrl: any;
+  constructor(private http: HttpClient) {
+    this.apiUrl = 'http://api.template.megaleios.com/api/v1/';
+  }
 
   login(login: string, password: string): Observable<any> {
-    return this.http.post<any>('http://api.template.megaleios.com/api/v1/Profile/Token', { login: login, password: password })
+    return this.http.post<any>(this.apiUrl + 'Profile/Token', { login: login, password: password })
       .pipe(
         map(user => {
           if (user.data && user.data.access_token) {

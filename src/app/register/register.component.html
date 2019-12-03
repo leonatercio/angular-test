@@ -1,47 +1,73 @@
-<div class="col-md-6 col-md-offset-3">
-  <h2>Register</h2>
-  <form name="form" (ngSubmit)="f.form.valid && register()" #f="ngForm" novalidate>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !login.valid }">
-      <label for="fullName">Full Name</label>
-      <input type="text" class="form-control" name="fullName" [(ngModel)]="model.fullName" #fullName="ngModel"
-        required />
-      <div *ngIf="f.submitted && !fullName.valid" class="help-block">Full name is required</div>
-    </div>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !login.valid }">
-      <label for="login">Login</label>
-      <input type="text" class="form-control" name="login" [(ngModel)]="model.login" #login="ngModel"
-        required />
-      <div *ngIf="f.submitted && !login.valid" class="help-block">Login is required</div>
-    </div>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel"
-        required />
-      <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-    </div>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !login.valid }">
-      <label for="cpf">CPF</label>
-      <input type="text" class="form-control" name="cpf" [(ngModel)]="model.cpf" #cpf="ngModel"
-        required />
-      <div *ngIf="f.submitted && !cpf.valid" class="help-block">CPF is required</div>
-    </div>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !login.valid }">
-      <label for="phone">Phone</label>
-      <input type="text" class="form-control" name="phone" [(ngModel)]="model.phone" #phone="ngModel"
-        required />
-      <div *ngIf="f.submitted && !phone.valid" class="help-block">Phone is required</div>
-    </div>
-    <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !login.valid }">
-      <label for="email">E-mail</label>
-      <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel"
-        required />
-      <div *ngIf="f.submitted && !email.valid" class="help-block">E-mail is required</div>
-    </div>
-    <div class="form-group">
-      <button [disabled]="loading" class="btn btn-primary">Register</button>
-      <img *ngIf="loading"
-        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
-      <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
-    </div>
-  </form>
+<div class="progress" *ngIf="loading">
+  <div class="indeterminate"></div>
 </div>
+<div class="section"></div>
+<main class="center-align">
+  <img class="responsive-img" style="width: 250px;" src="./../../assets/logo-full.png" />
+  <div class="section"></div>
+  <div class="container">
+    <div class="z-depth-1 grey lighten-4 row"
+      style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+      <form class="col s12" name="form" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type="text" class="form-control" name="fullName" [(ngModel)]="model.fullName"
+              #fullName="ngModel" required />
+            <label for='fullname'>Nome completo</label>
+            <span class="helper-text" data-error="wrong" *ngIf="f.submitted && !fullName.valid" data-success="right">FullName is required</span>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s6'>
+            <input class='validate' type="text" class="form-control" name="login" [(ngModel)]="model.login"
+              #login="ngModel" required />
+            <label for='login'>Login</label>
+            <span class="helper-text" data-error="wrong" *ngIf="f.submitted && !login.valid" data-success="right">Login is required</span>
+          </div>
+          <div class='input-field col s6'>
+            <input class='validate' type="password" class="form-control" name="password" [(ngModel)]="model.password"
+              #password="ngModel" required />
+            <label for='password'>Senha</label>
+            <span class="helper-text" data-error="wrong" *ngIf="f.submitted && !password.valid" data-success="right">Senha is required</span>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s6'>
+            <input id="cpf" class='validate' type="text" class="form-control" name="cpf" [(ngModel)]="model.cpf" #cpf="ngModel"
+              required />
+            <label for='cpf'>CPF</label>
+            <span class="helper-text" data-error="wrong" *ngIf="f.submitted && !cpf.valid" data-success="right">CPF is required</span>
+          </div>
+          <div class='input-field col s6'>
+            <input id="phone" class='validate' type="text" class="form-control" name="phone" [(ngModel)]="model.phone"
+              #phone="ngModel" required />
+            <label for='phone'>Telefone</label>
+            <span class="helper-text" data-error="wrong" *ngIf="f.submitted && !phone.valid" data-success="right">Telefone is required</span>
+          </div>
+        </div>
+
+        <div class='row'>
+          <div class='input-field col s12'>
+            <input class='validate' type="email" class="form-control" name="email" [(ngModel)]="model.email"
+              #email="ngModel" required />
+            <label for='email'>E-mail</label>
+            <span class="helper-text" data-error="wrong" *ngIf="f.submitted && !email.valid" data-success="right">E-mail is required</span>
+          </div>
+        </div>
+
+        <br />
+        <div class='row'>
+          <button [disabled]="!f.form.valid" name='btn_login' (click)="register()"
+            class='col s12 btn btn-large waves-effect purple darken-3'>Registrar</button>
+        </div>
+        <a [routerLink]="['/login']" class="purple-text">Cancelar</a>
+        <div class="section"></div>
+      </form>
+    </div>
+    <div class="section"></div>
+  </div>
+</main>

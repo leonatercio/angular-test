@@ -3,9 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// used to create fake backend
-// import { fakeBackendProvider } from './helpers/index';
-
 import { AppComponent } from './app.component';
 import { routing } from './app-routing.module';
 
@@ -16,12 +13,14 @@ import { AlertService, AuthenticationService, UserService } from './services/ind
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
+import { MaterializeModule } from 'angular2-materialize';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    MaterializeModule,
     routing
   ],
   declarations: [
@@ -41,9 +40,6 @@ import { RegisterComponent } from './register/index';
       useClass: JwtInterceptor,
       multi: true
     },
-
-    // provider used to create fake backend
-    // fakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

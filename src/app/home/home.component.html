@@ -1,18 +1,49 @@
-<div class="col-md-6 col-md-offset-3">
-  <h3>Todos usuários registrados:</h3>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">First</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>
-          {{user.fullName}}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <p><a class="btn btn-primary" [routerLink]="['/login']">Logout</a></p>
+<nav>
+  <div class="nav-wrapper purple darken-3">
+    <a class="brand-logo"><img style="margin-left: 15px; margin-top: 15px" class="responsive-img" src="./../../assets/icon.png" /></a>
+    <ul id="nav-mobile" class="right">
+      <li><a (click)="logout()"><i title="Logout" class="material-icons left">lock_open</i></a></li>
+    </ul>
+  </div>
+</nav>
+<div class="progress" *ngIf="loading">
+  <div class="indeterminate"></div>
 </div>
+<div class="section"></div>
+<main class="center-align">
+  <div class="section"></div>
+  <div class="container">
+    <div class="z-depth-1 grey lighten-4 row"
+      style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+      <h5 class="purple-text">TABELA DE USUÁRIOS DO SISTEMA</h5>
+
+      <table class="highlight centered responsive-table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Nome</th>
+            <th scope="col">CPF</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>
+              <img
+                src="{{user.photo !== 'http://api.template.megaleios.com/content/images/default.png' ? user.photo : './../../../assets/user.png'}}"
+                class="circle responsive-img" style="height: 40px; width: 40px;" alt="">
+            </td>
+            <td>{{user.fullName}}</td>
+            <td>{{user.cpf}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div class="section"></div>
+  </div>
+</main>

@@ -4,14 +4,17 @@ import { User } from '../models';
 
 @Injectable()
 export class UserService {
-
-  constructor(private http: HttpClient) { }
+  apiUrl: any;
+  limit: 30;
+  constructor(private http: HttpClient) {
+    this.apiUrl = 'http://api.template.megaleios.com/api/v1/';
+  }
 
   getAll() {
-    return this.http.get<any>('http://api.template.megaleios.com/api/v1/Profile/List?limit=30');
+    return this.http.get<any>(this.apiUrl + 'Profile/List?limit=' + this.limit);
   }
 
   create(user: User) {
-    return this.http.post('http://api.template.megaleios.com/api/v1/Profile/Register', user);
+    return this.http.post(this.apiUrl + 'Profile/Register', user);
   }
 }

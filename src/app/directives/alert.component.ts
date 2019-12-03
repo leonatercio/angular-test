@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { toast } from 'angular2-materialize';
 import { AlertService } from '../services/index';
 
 @Component({
@@ -14,10 +14,17 @@ export class AlertComponent implements OnInit {
 
   ngOnInit() {
     this.alertService.getMessage().subscribe(message => {
-      console.log(message);
-      this.message = message;
-    }, error => {
-      console.log(error);
+      if (message) {
+        this.toaster(this.message = message, message.type);
+      }
     });
+  }
+
+  toaster(message, type) {
+    if (type === 'success') {
+      toast(message.text, 3000);
+    } else if (type === 'error') {
+      toast(message.text.error.message, 3000);
+    }
   }
 }
